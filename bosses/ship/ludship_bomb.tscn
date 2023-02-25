@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/bosses/bomb/bomb.png" type="Texture" id=1]
+[ext_resource path="res://bosses/ship/ludship_bomb.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.0221675, 0.957613 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.637793 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.21229, 0.709497, 1 )
+colors = PoolColorArray( 1, 0.454902, 0.454902, 1, 0.341176, 0.105882, 0.384314, 1, 0.341176, 0.105882, 0.384314, 0 )
+
+[node name="LudShipBomb" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, -11 )
+amount = 30
+lifetime = 0.2
+emission_shape = 2
+emission_rect_extents = Vector2( 12, 0 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+angle = 39.6
+scale_amount = 5.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )

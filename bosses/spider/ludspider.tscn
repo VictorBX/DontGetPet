@@ -1,0 +1,167 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/bosses/spider/boss_leg_frleg.png" type="Texture" id=1]
+[ext_resource path="res://assets/bosses/spider/boss_leg_blleg.png" type="Texture" id=2]
+[ext_resource path="res://assets/bosses/spider/boss_leg_brleg.png" type="Texture" id=3]
+[ext_resource path="res://assets/bosses/spider/boss_body.png" type="Texture" id=4]
+[ext_resource path="res://assets/bosses/spider/boss_leg_flleg.png" type="Texture" id=5]
+[ext_resource path="res://assets/bosses/lud_ship_cloud.png" type="Texture" id=6]
+[ext_resource path="res://bosses/spider/ludspider.gd" type="Script" id=7]
+
+[sub_resource type="Curve" id=3]
+_data = [ Vector2( 0.00985222, 0.977478 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.103604 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=1]
+resource_name = "walk_left"
+length = 2.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FLLegSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( -5, -5 ), Vector2( -5, 0 ), Vector2( -5, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FRLegSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( -3, -5 ), Vector2( -3, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BLLegSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 1, -1 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BRLegSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( -1, -1 ), Vector2( -1, 0 ), Vector2( -1, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "walk_right"
+length = 2.1
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("FLLegSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 3, -5 ), Vector2( 3, 0 ), Vector2( 3, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("FRLegSprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 5, -5 ), Vector2( 5, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BLLegSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.2, 1.5, 1.8, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( -1, -1 ), Vector2( -1, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BRLegSprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 1, -1 ), Vector2( 1, 0 ), Vector2( 1, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 42, 29 )
+
+[node name="LudSpider" type="KinematicBody2D"]
+script = ExtResource( 7 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 30
+lifetime = 3.5
+texture = ExtResource( 6 )
+emission_shape = 2
+emission_rect_extents = Vector2( 25, 1 )
+direction = Vector2( 0, -1 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 20.0
+scale_amount = 1.3
+scale_amount_curve = SubResource( 3 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="BRLegSprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="BLLegSprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="FLLegSprite" type="Sprite" parent="."]
+texture = ExtResource( 5 )
+
+[node name="FRLegSprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="BodySprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/walk_left = SubResource( 1 )
+anims/walk_right = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 19 )
+shape = SubResource( 4 )
+
+[node name="BulletArea2D" type="Area2D" parent="." groups=["boss", "destroy_bullet"]]
+collision_layer = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BulletArea2D"]
+polygon = PoolVector2Array( -53, 60, -15, 41, 15, 40, 53, 60, 40, 12, 35, 10, 25, -27, 10, -50, -10, -50, -25, -27, -35, 10, -40, 12 )

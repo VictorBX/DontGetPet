@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bosses/boss_bullet_destroy.gd" type="Script" id=1]
+[ext_resource path="res://assets/bosses/lud_circle_attack_bcol3.png" type="Texture" id=2]
+[ext_resource path="res://assets/bosses/lud_circle_attack_bcol2.png" type="Texture" id=3]
+[ext_resource path="res://assets/bosses/lud_circle_attack_bcol1.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "small_red",
+"speed": 50.0
+} ]
+
+[node name="BossBulletDestroy" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "small_red"
+script = ExtResource( 1 )

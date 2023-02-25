@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/phase_two_loop.mp3-3c6a835a0c82c27e7b1a3d76cb3c14f6.mp3str"
+
+[deps]
+
+source_file="res://assets/music/phase_two_loop.mp3"
+dest_files=[ "res://.import/phase_two_loop.mp3-3c6a835a0c82c27e7b1a3d76cb3c14f6.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://bosses/spider/ludspider_laser.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bosses/spider/ludspider_laser_attack.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "pinch"
+tracks/0/type = "value"
+tracks/0/path = NodePath("RightLudSpiderLaser:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -45.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LeftLudSpiderLaser:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, 0.0 ]
+}
+
+[node name="BossLaserAttack" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="RightLudSpiderLaser" parent="." instance=ExtResource( 1 )]
+rotation = -0.785398
+
+[node name="LeftLudSpiderLaser" parent="." instance=ExtResource( 1 )]
+rotation = 0.785398
+collision_mask = 8
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/pinch = SubResource( 1 )

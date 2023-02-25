@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/coots_hurt.mp3-d08c147fedca8a744531ac5f8a32b8d9.mp3str"
+
+[deps]
+
+source_file="res://assets/music/coots_hurt.mp3"
+dest_files=[ "res://.import/coots_hurt.mp3-d08c147fedca8a744531ac5f8a32b8d9.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

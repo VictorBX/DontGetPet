@@ -1,0 +1,129 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/bosses/base/ludbase_luddy3.png" type="Texture" id=1]
+[ext_resource path="res://assets/bosses/base/ludbase_luddy1.png" type="Texture" id=2]
+[ext_resource path="res://assets/bosses/base/ludbase_luddy4.png" type="Texture" id=3]
+[ext_resource path="res://assets/bosses/base/ludbase_luddy2.png" type="Texture" id=4]
+[ext_resource path="res://assets/bosses/base/ludbase_idle.png" type="Texture" id=5]
+[ext_resource path="res://bosses/base/ludbase.gd" type="Script" id=6]
+[ext_resource path="res://bosses/boss_speech.tscn" type="PackedScene" id=7]
+[ext_resource path="res://assets/bosses/base/ludbase_dead.png" type="Texture" id=8]
+[ext_resource path="res://assets/bosses/lud_ship_cloud.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 48, 57 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 69, 69 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 69, 69 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 69, 69 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 69, 69 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "luddy",
+"speed": 4.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 15 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 28 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "disappear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.117647 ) ]
+}
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0.00492611, 0.986487 ), 0.0, -0.0606692, 0, 0, Vector2( 1, 0 ), -2.75929, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.26257, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.0705882 )
+
+[node name="LudBase" type="KinematicBody2D"]
+script = ExtResource( 6 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 6 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 13 )
+shape = SubResource( 7 )
+
+[node name="BulletArea2D" type="Area2D" parent="." groups=["boss", "destroy_bullet"]]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea2D"]
+shape = SubResource( 8 )
+
+[node name="BossSpeech" parent="." instance=ExtResource( 7 )]
+position = Vector2( -50, -57 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/disappear = SubResource( 9 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 0, 5 )
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+local_coords = false
+texture = ExtResource( 9 )
+direction = Vector2( 0, 0 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 40.0
+scale_amount = 2.0
+scale_amount_curve = SubResource( 10 )
+color_ramp = SubResource( 11 )

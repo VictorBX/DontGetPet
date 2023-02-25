@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/fonts/prstartk.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://bosses/boss_speech.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+extra_spacing_top = 1
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ), Vector2( 0, 0 ), Vector2( 0, 3 ), Vector2( 0, 0 ) ]
+}
+
+[node name="BossSpeech" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = -1.0
+margin_right = 100.0
+margin_bottom = 24.0
+color = Color( 0, 0, 0, 0.670588 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+margin_left = 6.0
+margin_top = 7.0
+margin_right = 119.0
+margin_bottom = 66.0
+custom_fonts/normal_font = SubResource( 1 )
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )

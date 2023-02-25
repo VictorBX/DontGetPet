@@ -1,0 +1,27 @@
+[gd_scene format=2]
+
+[node name="HUDGunSelect" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -6.0
+margin_top = -7.0
+margin_right = -3.0
+margin_bottom = -6.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -7.0
+margin_top = -6.0
+margin_right = -6.0
+margin_bottom = -3.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+margin_left = 6.0
+margin_top = 2.0
+margin_right = 7.0
+margin_bottom = 5.0
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+margin_left = 3.0
+margin_top = 5.0
+margin_right = 6.0
+margin_bottom = 6.0

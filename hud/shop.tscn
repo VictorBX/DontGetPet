@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/prstartk.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://hud/shop.gd" type="Script" id=2]
+[ext_resource path="res://hud/shop_item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/items/chest/coin1.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+font_data = ExtResource( 1 )
+
+[node name="Shop" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="OverlayColorRect" type="ColorRect" parent="."]
+margin_top = 16.0
+margin_right = 320.0
+margin_bottom = 196.0
+color = Color( 0, 0, 0, 0.490196 )
+
+[node name="BGColorRect" type="ColorRect" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 304.0
+margin_bottom = 164.0
+color = Color( 0, 0, 0, 0.929412 )
+
+[node name="TLDColorRect" type="ColorRect" parent="BGColorRect"]
+margin_left = 195.0
+margin_top = 34.0
+margin_right = 197.0
+margin_bottom = 44.0
+
+[node name="TLRColorRect" type="ColorRect" parent="BGColorRect"]
+margin_left = 197.0
+margin_top = 32.0
+margin_right = 207.0
+margin_bottom = 34.0
+
+[node name="ShopLabel" type="RichTextLabel" parent="BGColorRect"]
+margin_left = 11.0
+margin_top = 6.0
+margin_right = 76.0
+margin_bottom = 24.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Shop"
+scroll_active = false
+
+[node name="DividerColorRect" type="ColorRect" parent="BGColorRect"]
+margin_left = 11.0
+margin_top = 28.0
+margin_right = 277.0
+margin_bottom = 29.0
+color = Color( 1, 1, 1, 0.4 )
+
+[node name="BRUColorRect" type="ColorRect" parent="BGColorRect"]
+margin_left = 268.0
+margin_top = 123.0
+margin_right = 270.0
+margin_bottom = 133.0
+
+[node name="BRLColorRect" type="ColorRect" parent="BGColorRect"]
+margin_left = 258.0
+margin_top = 133.0
+margin_right = 268.0
+margin_bottom = 135.0
+
+[node name="ItemDescriptionLabel" type="RichTextLabel" parent="BGColorRect"]
+margin_left = 202.0
+margin_top = 39.0
+margin_right = 326.0
+margin_bottom = 219.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Name
+
+This is the description of the item. Buy it or leave it."
+text = "Name
+
+This is the description of the item. Buy it or leave it."
+
+[node name="LaserShopItem" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 11.0
+margin_top = 32.0
+margin_right = 43.0
+margin_bottom = 64.0
+
+[node name="KnifeShopItem" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 11.0
+margin_top = 72.0
+margin_right = 43.0
+margin_bottom = 104.0
+
+[node name="QTShopItem" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 11.0
+margin_top = 112.0
+margin_right = 43.0
+margin_bottom = 144.0
+
+[node name="LaserJuiceShopItem" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 67.0
+margin_top = 32.0
+margin_right = 99.0
+margin_bottom = 64.0
+
+[node name="LongDashShopItem" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 67.0
+margin_top = 72.0
+margin_right = 99.0
+margin_bottom = 104.0
+
+[node name="FasterMoveShopItem2" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 67.0
+margin_top = 112.0
+margin_right = 99.0
+margin_bottom = 144.0
+
+[node name="ReduceDashShopItem3" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 123.0
+margin_top = 32.0
+margin_right = 155.0
+margin_bottom = 64.0
+
+[node name="ReduceGunShopItem4" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 123.0
+margin_top = 72.0
+margin_right = 155.0
+margin_bottom = 104.0
+
+[node name="LuckyShopItem5" parent="BGColorRect" instance=ExtResource( 3 )]
+margin_left = 123.0
+margin_top = 112.0
+margin_right = 155.0
+margin_bottom = 144.0
+
+[node name="CoinSprite" type="Sprite" parent="BGColorRect"]
+visible = false
+position = Vector2( 239, 126 )
+texture = ExtResource( 4 )
+
+[node name="CoinRichTextLabel" type="RichTextLabel" parent="BGColorRect"]
+visible = false
+margin_left = 244.0
+margin_top = 124.0
+margin_right = 288.0
+margin_bottom = 134.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "1000"
