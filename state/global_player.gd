@@ -134,8 +134,8 @@ func dash_speed():
 
 func iframes_time():
 	if has_increase_iframes:
-		return 10
-	return 5
+		return 3
+	return 1.5
 
 func dash_cooldown():
 	if has_reduced_dash_cooldown:

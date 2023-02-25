@@ -31,7 +31,7 @@ func _description_for_item(shop_item_type):
 		ShopItemType.ShopItemType.SI_LASER:
 			return "Laser\n\nPretty powerful stuff. You need to replenish on laser juice when you run out."
 		ShopItemType.ShopItemType.SI_SWORD:
-			return "Knife\n\nShort range slashes so you'll need to get up close. It's also pretty sharp.\n\nATTACK POWER: 3x"
+			return "Knife\n\nShort range slashes so you'll need to get up close. It's also pretty sharp. 2x stronger than the gun."
 		ShopItemType.ShopItemType.SI_QT_BLESSING:
 			return "QT's Blessing\n\nIncreases your health by 1. Count your blessings."
 		ShopItemType.ShopItemType.SI_LASER_JUICE:

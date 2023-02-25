@@ -47,7 +47,7 @@ func hit_by_laser_bullet(delta):
 	reduce_health(10 * delta)
 
 func hit_by_knife_bullet():
-	reduce_health(6)
+	reduce_health(4)
 
 func reduce_health(amount):
 	if boss_action != BossAction.BossAction.BA_ATTACKING:
